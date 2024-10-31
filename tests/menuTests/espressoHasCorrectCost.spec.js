@@ -1,10 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { MenuPage } from '../../src/pages/MenuPage';
 
 test('Check Espresso cup has correct cost', async ({ page }) => {
-  await page.goto('https://coffee-cart.app/'); 
+  const menuPage = new MenuPage(page);
+      
+  await menuPage.open();
 
-  const espressoCup = page.getByTestId('Espresso');
-  const parent = page.getByRole('listitem').filter({ has: espressoCup })
-
-  await expect(parent).toContainText('$10.00'); 
+  await menuPage.assertEspressoCupCostHasValue('$10.00') 
 });
