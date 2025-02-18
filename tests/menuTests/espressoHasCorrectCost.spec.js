@@ -1,10 +1,10 @@
-import { test, expect } from '@playwright/test';
-import { MenuPage } from '../../src/pages/MenuPage';
+import { test } from "@playwright/test";
+import { MenuPage } from "../../src/pages/MenuPage";
 
-test('Check Espresso cup has correct cost', async ({ page }) => {
+test("Check Espresso cup has correct cost", async ({ page }) => {
   const menuPage = new MenuPage(page);
-      
+
   await menuPage.open();
 
-  await menuPage.assertEspressoCupCostHasValue('$10.00') 
+  await menuPage.assertEspressoCupCostHasValue("$10.00");
 });
